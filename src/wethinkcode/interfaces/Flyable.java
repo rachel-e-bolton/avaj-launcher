@@ -1,6 +1,6 @@
-package sa.wethinkcode.avaj.interfaces;
+package wethinkcode.interfaces;
 
-import sa.wethinkcode.avaj.simulator.WeatherTower;
+import wethinkcode.simulator.WeatherTower;
 
 public interface Flyable {
     void updateConditions();

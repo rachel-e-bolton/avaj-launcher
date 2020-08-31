@@ -1,4 +1,4 @@
-package sa.wethinkcode.avaj.aircraft;
+package wethinkcode.aircraft;
 
 public class Coordinates {
     private int _longitude;
@@ -8,7 +8,7 @@ public class Coordinates {
     public Coordinates(int longitude, int latitude, int height) {
         this._longitude = longitude;
         this._latitude = latitude;
-        this._height = height;
+        this._height = (height > 100) ? 100 : height;
     }
 
     public int getLongitude() {

@@ -1,12 +1,12 @@
-package sa.wethinkcode.avaj.aircraft;
+package wethinkcode.aircraft;
 
-import sa.wethinkcode.avaj.interfaces.Flyable;
+import wethinkcode.interfaces.Flyable;
 
 public abstract class AircraftFactory {
     public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) throws Exception {
 
-        if (longitude <= 0 || latitude <= 0 || height < 0 || height > 100) {
-            throw new Exception("Coordinates must be positive integers. Height should be between 0 and 100.");
+        if (longitude <= 0 || latitude <= 0 || height < 0) {
+            throw new Exception("Coordinates must be positive integers.");
         } else {
             Coordinates coordinates = new Coordinates(longitude, latitude, height);
 
@@ -23,3 +23,4 @@ public abstract class AircraftFactory {
         }
     }
 }
+

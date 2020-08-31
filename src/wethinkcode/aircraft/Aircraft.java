@@ -1,4 +1,4 @@
-package sa.wethinkcode.avaj.aircraft;
+package wethinkcode.aircraft;
 
 public abstract class Aircraft {
     protected long id;
