@@ -15,35 +15,35 @@ public class Helicopter extends Aircraft implements Flyable {
         String weather = _weatherTower.getWeather(this.coordinates);
 
         String msg = String.format("Helicopter#%s(%d): ", this.name, this.id);
-        int newLng = this.coordinates.getLongitude();
+        int newLong = this.coordinates.getLongitude();
         int newLat = this.coordinates.getLatitude();
-        int newHgt = this.coordinates.getHeight();
+        int newHeight = this.coordinates.getHeight();
 
         if (weather.equals("SUN")) {
-            newLng += 10;
-            newHgt += 2;
+            newLong += 10;
+            newHeight += 2;
             msg += "Blimey, Archibald! I can see the elephants! The Okavango is splendid this time of year...";
             Simulator.writer.println(msg);
         } else if (weather.equals("RAIN")) {
-            newLng += 5;
+            newLong += 5;
             msg += "Well, Crikey, Fred. I'm not flying with you again if you don't check the weather. It's spring rain.";
             Simulator.writer.println(msg);
         } else if (weather.equals("FOG")) {
-            newLng += 1;
+            newLong += 1;
             msg += "It's a little misty out. Bumps could be turbulence. Could be us bumping into things.";
             Simulator.writer.println(msg);
         } else if (weather.equals("SNOW")) {
-            newHgt -= 12;
+            newHeight -= 12;
             msg += "Getting a little to close too the peaks, chap. I feel the chill in my bones.";
             Simulator.writer.println(msg);
         }
 
-        this.coordinates = new Coordinates(newLng, newLat, newHgt);
+        this.coordinates = new Coordinates(newLong, newLat, newHeight);
 
         if (this.coordinates.getHeight() <= 0) {
             this._weatherTower.unregister(this);
             Simulator.writer.println(String.format("Helicopter#%s(%d): AIRCRAFT INCOMING! @ %d,%d.",
-                    this.name, this.id, newLng, newLat));
+                    this.name, this.id, newLong, newLat));
             Simulator.writer.println(String.format("Tower says: Helicopter#%s(%d) unregistered to weather tower.",
                     this.name, this.id));
         }
